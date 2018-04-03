@@ -58,7 +58,7 @@ exports.run = (client, message, args) => {
                     "fields": [
                         {
                             "name": `${response.data.name} has ${CatCount} ${RandomAdjective()} cats!`,
-                            "value": 'uwu'
+                            "value": 'Wow!'
                         }
                     ]
                 };
