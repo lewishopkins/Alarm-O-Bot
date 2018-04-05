@@ -16,19 +16,16 @@ exports.run = (client, message, args) => {
         return AdjectiveList[RandomNumber];
     }
 
-    // Validation
-    if (!args[0])
-        message.reply("you did not enter a valid name.\nCorrect syntax: !inspect CharacterName Realm-Name Region");
-    else if (args[2] && args[2] !== ('eu' || 'us' ))
-        message.reply("you did not enter a valid region.\n Available regions: EU US");
-    else {
-        
-        // Set region
-        var Cname = args[0];
-        if (!args[1]) var Crealm = config.default_realm;
-            else var Crealm = args[1];
-        if (!args[2]) var Cregion = config.default_region;
-            else var Cregion = args[2];
+  // Validation
+  var characterDetails = validator.data.ValidateCharacter(args);
+  if (characterDetails[0] === 0)
+    // Invalid Details - Send Error
+    message.reply(characterDetails[1]+`\nCorrect syntax: !command CharacterName Realm-Name Region`);
+  else {
+    // Valid Details - Set Details
+    var Cname = characterDetails[0];
+    var Crealm = characterDetails[1];
+    var Cregion = characterDetails[2];
 
 
         blizzard.wow.character(['profile', 'pets'], { realm: Crealm, name: Cname, origin: Cregion })
@@ -66,7 +63,7 @@ exports.run = (client, message, args) => {
                 // Send Post
                 message.channel.send({ embed });
 
-            });
+            }).catch(err => message.reply("I was unable to find the character '" + Cname + "', on the realm '" + Crealm + "', on the '" + Cregion + "' region."));
         }
 
     };
