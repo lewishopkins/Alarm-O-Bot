@@ -29,5 +29,4 @@ validator.ValidateCharacter = function(args) {
     
 };
 
-
 exports.data = validator;

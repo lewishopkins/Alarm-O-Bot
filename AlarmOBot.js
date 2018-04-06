@@ -5,8 +5,8 @@
 //
 
 // Set up Bot
-var Discord = require("discord.js");
-var bot = new Discord.Client();
+const Discord = require("discord.js");
+const bot = new Discord.Client();
 const config = require("./config.json");
 const fs = require("fs");
 
