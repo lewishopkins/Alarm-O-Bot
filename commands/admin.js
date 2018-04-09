@@ -2,11 +2,18 @@ exports.run = (client, message, args) => {
 
 	const config = require("../config.json");
     const fs = require("fs");
-    var blizzard = require('blizzard.js').initialize({ apikey: config.BLIZZARD_API_KEY });
+	const blizzard = require('blizzard.js').initialize({ apikey: config.BLIZZARD_API_KEY });
 
+	// Check Role/Command Permissions
+	var AllowedRoles = ["Admin"];
+	// Check roles
+	const RoleChecker = require("../functions/check-roles.js");
+	var RoleCheck = RoleChecker.data.CheckPermissions(message, AllowedRoles);
+	if (!RoleCheck)
+		return;
 
     if (args[0] === "credentials") {
-		blizzard.data.credentials({id: 'qyachx38hdwh52ut2sxkxh74hvkffmxy', secret: config.BLIZZARD_SECRET, origin: 'eu' })
+		blizzard.data.credentials({id: config.BLIZZARD_API_KEY, secret: config.BLIZZARD_SECRET, origin: 'eu' })
 			.then(response => {
 				console.log('Results of authenticating credentials:');
 				console.log(response.data);

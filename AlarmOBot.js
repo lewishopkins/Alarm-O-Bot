@@ -29,7 +29,7 @@ bot.on("ready", () => {
 			console.log("\x1b[36m", "[Blizzard] WARNING: Blizzard API Access Token expires in "+daysRemaining+" days.\nPlease renew your API token by typing '!admin credentials' in Discord.");
 		else
 			console.log("\x1b[36m", "[Blizzard] Your Blizzard API Access Token has "+daysRemaining+" days remaining.");
-	});
+	}).catch(err => console.log("\x1b[36m", "[Blizzard] WARNING: Blizzard API Access Token has EXPIRED.\nPlease renew your API token by typing '!admin credentials' in Discord."));
 
 });
 
@@ -58,7 +58,6 @@ bot.on("message", message => {
 	} catch (err) {
 		console.error(err);
 	}
-	
 	
 });
 
