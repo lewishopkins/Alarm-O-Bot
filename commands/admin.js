@@ -5,7 +5,7 @@ exports.run = (client, message, args) => {
 	const blizzard = require('blizzard.js').initialize({ apikey: config.BLIZZARD_API_KEY });
 
 	// Check Role/Command Permissions
-	var AllowedRoles = ["Admin"];
+	var AllowedRoles = ["Mod"];
 	// Check roles
 	const RoleChecker = require("../functions/check-roles.js");
 	var RoleCheck = RoleChecker.data.CheckPermissions(message, AllowedRoles);

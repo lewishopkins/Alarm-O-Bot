@@ -1,6 +1,7 @@
 {
     "token"  : "",
     "prefix" : "!",
+    "admin_role_name" : "Admin",
     "currently_playing" : "World of Warcraft",
 
     "BLIZZARD_API_KEY" : "",

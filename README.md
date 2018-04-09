@@ -2,9 +2,13 @@
 
 This is a simple bot for World of Warcraft Discord servers.
 
-## Commands
+## Config
 
 - A default realm and region may be set in the config so that users may leave out those part of the following commands.
+- admin_role_name allows you to set the role which has access to all commands.
+
+## Commands
+
 - Realms with more than one word (Eg Argent Dawn) must replace spaces with dashes (Argent-Dawn).
 
 ```

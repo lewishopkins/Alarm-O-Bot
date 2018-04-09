@@ -8,6 +8,11 @@ var RoleChecker = {};
 
 RoleChecker.CheckPermissions = function(message, allowedRoles) {
 
+    // Add global admin role
+    if (config.admin_role_name)
+        allowedRoles.push(config.admin_role_name);
+
+    // Check allowedRoles
     if (message.member.roles.some(r=>allowedRoles.includes(r.name)))
         return 1;
     else
