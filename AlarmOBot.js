@@ -1,8 +1,4 @@
-// ALARM-O-BOT 0.1
-// Setting up the basics.
-//
-// https://discordapp.com/oauth2/authorize?client_id=420218094141571072&scope=bot
-//
+// ALARM-O-BOT
 
 // Set up Bot
 const Discord = require("discord.js");

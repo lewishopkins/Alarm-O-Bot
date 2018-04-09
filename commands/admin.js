@@ -27,12 +27,11 @@ exports.run = (client, message, args) => {
 			});
 		}
 		
-		if (args[0] === "validate") {
-		blizzard.data.validate({ origin: 'eu', token: config.BLIZZARD_API_ACCESS_TOKEN })
-			.then(response => {
-				console.log(response.data);
-				message.reply("please check the console.");
-			});
-        }
-        
+	if (args[0] === "validate") {
+	blizzard.data.validate({ origin: 'eu', token: config.BLIZZARD_API_ACCESS_TOKEN })
+		.then(response => {
+			console.log(response.data);
+			message.reply("please check the console.");
+		});
+	}
 }
