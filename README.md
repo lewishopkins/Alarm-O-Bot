@@ -2,14 +2,22 @@
 
 This is a simple bot for World of Warcraft Discord servers.
 
+This bot uses:
+
+- Node.js - A server framework which is used to create scalable network applications.
+- Discord.js - A node.js module which allows for easy interaction with the Discord API.
+- Blizzard.js - A node.js promise-based module which allows access to the Blizzard API.
+
 ## Config
 
+- Rename 'configTEMPLATE.json' to 'config.json'.
+- Set "admin_role_name" to a Discord role on your server which you are happy to have access to ALL commands - preferably a role which only you have.
 - A default realm and region may be set in the config so that users may leave out those part of the following commands.
-- admin_role_name allows you to set the role which has access to all commands.
 
 ## Commands
 
 - Realms with more than one word (Eg Argent Dawn) must replace spaces with dashes (Argent-Dawn).
+- The bot must be validated through Blizzard before it may use certain commands such as '!token'. To do this, use the '!admin validate' command, which will add the "BLIZZARD_API_ACCESS_TOKEN" to your config file for you. This token expires after 30 days. This will be automated in the future.
 
 ```
 !inspect Name Realm-Name region - Displays basic character information, item level and raid progression

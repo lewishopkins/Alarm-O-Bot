@@ -13,7 +13,7 @@ exports.run = (client, message, args) => {
 		return;
 
     if (args[0] === "credentials") {
-		blizzard.data.credentials({id: config.BLIZZARD_API_KEY, secret: config.BLIZZARD_SECRET, origin: 'eu' })
+		blizzard.data.credentials({id: config.BLIZZARD_API_KEY, secret: config.BLIZZARD_API_SECRET, origin: 'eu' })
 			.then(response => {
 				console.log('Results of authenticating credentials:');
 				console.log(response.data);
