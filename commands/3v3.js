@@ -20,12 +20,8 @@ exports.run = (client, message, args) => {
     var Crealm = characterDetails[1];
     var Cregion = characterDetails[2]; 
 
-    blizzard.wow.character(['profile', 'pvp'], { realm: Crealm, name: Cname, origin: Cregion })
+    blizzard.wow.character(['profile', 'pvp', 'statistics'], { realm: Crealm, name: Cname, origin: Cregion })
     .then(response => {
-      console.log(response.data.pvp.brackets);
-      console.log(colors);
-      console.log(colors.data);
-      console.log(colors.data.GetFactionColor);
 
       var embed = {
         "color": colors.data.GetFactionColor(response.data.faction),
@@ -51,8 +47,8 @@ exports.run = (client, message, args) => {
             "value": response.data.pvp.brackets.ARENA_BRACKET_3v3.seasonWon + " Wins, " + response.data.pvp.brackets.ARENA_BRACKET_3v3.seasonLost + " Losses"
           },
           {
-            "name": "3v3 Weekly Stats",
-            "value": response.data.pvp.brackets.ARENA_BRACKET_3v3.weeklyWon + " Wins, " + response.data.pvp.brackets.ARENA_BRACKET_3v3.weeklyLost + " Losses"
+            "name": "3v3 All Time Stats",
+            "value": response.data.statistics.subCategories[9].subCategories[0].statistics[5].quantity + " Wins, " + (response.data.statistics.subCategories[9].subCategories[0].statistics[4].quantity - response.data.statistics.subCategories[9].subCategories[0].statistics[5].quantity) + " Losses"
           }
         ]
       }

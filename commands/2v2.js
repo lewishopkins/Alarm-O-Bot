@@ -20,7 +20,7 @@ exports.run = (client, message, args) => {
     var Crealm = characterDetails[1];
     var Cregion = characterDetails[2];
 
-    var request = blizzard.wow.character(['profile', 'pvp'], { realm: Crealm, name: Cname, origin: Cregion })
+    blizzard.wow.character(['profile', 'pvp', 'statistics'], { realm: Crealm, name: Cname, origin: Cregion })
     .then(response => {
 
       var embed = {
@@ -47,8 +47,8 @@ exports.run = (client, message, args) => {
               "value": response.data.pvp.brackets.ARENA_BRACKET_2v2.seasonWon + " Wins, " + response.data.pvp.brackets.ARENA_BRACKET_2v2.seasonLost + " Losses"
             },
             {
-              "name": "2v2 Weekly Stats",
-              "value": response.data.pvp.brackets.ARENA_BRACKET_2v2.weeklyWon + " Wins, " + response.data.pvp.brackets.ARENA_BRACKET_2v2.weeklyLost + " Losses"
+              "name": "2v2 All Time Stats",
+              "value": response.data.statistics.subCategories[9].subCategories[0].statistics[8].quantity + " Wins, " + (response.data.statistics.subCategories[9].subCategories[0].statistics[7].quantity - response.data.statistics.subCategories[9].subCategories[0].statistics[8].quantity) + " Losses"
             }
           ]
         }
