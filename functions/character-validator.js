@@ -29,4 +29,15 @@ validator.ValidateCharacter = function(args) {
     
 };
 
+validator.ValidateRegion = function(args) {
+
+    console.log(args[0]);
+
+    if (!args[0])
+        return config.default_region;
+    else if (args[0] === "eu" || args[0] === "us" || args[0] === "kr" || args[0] === "tw")  // Valid Regions
+        return [1, args[0]];
+    else return [0, "Please enter a valid region (US, EU, KR or TW)"];
+}
+
 exports.data = validator;

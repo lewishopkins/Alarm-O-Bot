@@ -5,36 +5,30 @@ exports.run = (client, message, args) => {
 
     const config = require("../config.json");
     const fs = require("fs");
+    const validator = require("../functions/character-validator.js");
     const blizzard = require('blizzard.js').initialize({ apikey: config.BLIZZARD_API_KEY });
 
-
-    if (!args[0])
-        var region = config.default_region;
-    else if (args[0] !== ('eu' || 'us'))
-        message.reply("you did not enter a valid region.\nAvailable regions: EU, US");
+    var regionDetails = validator.data.ValidateRegion(args);
+    if (regionDetails[0] === 0)
+        message.reply(regionDetails[1]+`\nCorrect syntax: !token region`);
     else {
-        var region = args[0];
-    }
+        var region = regionDetails[1];
 
-    if (region) {
-
-        // TODO: Fix regions
-        blizzard.data.token({ access_token: config.BLIZZARD_API_ACCESS_TOKEN, namespace: 'dynamic-eu', origin: region })
+        blizzard.data.token({ access_token: config.BLIZZARD_API_ACCESS_TOKEN, namespace: `dynamic-${region}`, origin: region })
         .then(response => {
-            console.log(response.data);
 
             var GoldResult = String(response.data.price);
-            console.log('GoldResult = ' + GoldResult);
+            //console.log('GoldResult = ' + GoldResult);
             
             // Remove Copper/Silver
             GoldOnly = GoldResult.slice(0,-4);
-            console.log('GoldOnly = ' + GoldOnly);
+            //console.log('GoldOnly = ' + GoldOnly);
             
             // TODO: Fix for if the gold price drops below or above 6 figures.
             GFirst = GoldOnly.slice(0,-3);
-            console.log('GFirst = ' + GFirst);
+            //console.log('GFirst = ' + GFirst);
             GLast = GoldOnly.slice(3);
-            console.log('GLast = ' + GLast);
+            //console.log('GLast = ' + GLast);
             
             // Stick Together
             GFinal = GFirst + "," + GLast + "g";
