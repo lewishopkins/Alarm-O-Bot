@@ -28,6 +28,7 @@ This bot uses:
 !RBG - RBG Arena Stats
 
 !PVP - Displays various PVP Statistics, including Duels, Battlegrounds and Honorable Kill stats.
+!pets - Stats on the player's pets and pet battles
 !catcheck - Displays how many cats the player has
 
 !admin validate - Assigns an access token which lasts 30 days, allowing access to commands such as !token
