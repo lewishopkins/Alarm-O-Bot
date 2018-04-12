@@ -21,16 +21,49 @@ exports.run = (client, message, args) => {
 
         // Queries
         var Ppets = blizzard.wow.character(['profile', 'pets'], { realm: Crealm, name: Cname, origin: Cregion });
-        var PpetSlots = blizzard.wow.character(['petSlots'], { realm: Crealm, name: Cname, origin: Cregion })
-
+        //var PpetSlots = blizzard.wow.character(['petSlots'], { realm: Crealm, name: Cname, origin: Cregion });  // Not in Use
+        var Pstatistics = blizzard.wow.character(['statistics'], {realm: Crealm, name: Cname, origin: Cregion });
 
         // Gather data
-		var results = Promise.all([Ppets, PpetSlots]);
+		var results = Promise.all([Ppets, Pstatistics]);
 		results.then(response => {
-
-            console.log(response[1].data);
-            console.log("Pets Collected by " + response[0].data.name + ": " + response[0].data.pets.numCollected + "/" + response[0].data.pets.numNotCollected);
             
+            var embed = {
+                "color": 4375684,
+                "timestamp": new Date(),
+                "footer": {
+                    "icon_url": "https://bnetcmsus-a.akamaihd.net/cms/content_entry_media/m0/M07PD0T0K9YZ1417452204158.png",
+                    "text": "Alarm-o-Bot"
+                },
+                "thumbnail": {
+                    "url": "https://bnetcmsus-a.akamaihd.net/cms/content_entry_media/m0/M07PD0T0K9YZ1417452204158.png"
+                },
+                "author": {
+                    "name": "Pet Checker",
+                    "icon_url": "https://bnetcmsus-a.akamaihd.net/cms/content_entry_media/m0/M07PD0T0K9YZ1417452204158.png"
+                },
+                "fields": [
+                    {
+                        "name": "Pets Collected",
+                        "value": response[0].data.pets.numCollected + " pets collected out of a possible " + response[0].data.pets.numNotCollected + "!"
+                    },
+                    {
+                        "name": "Pet Battle Victories",
+                        "value": response[1].data.statistics.subCategories[10].statistics[1].quantity
+                    },
+                    {
+                        "name": "PvP Pet Battle Victories",
+                        "value": response[1].data.statistics.subCategories[10].statistics[2].quantity
+                    },
+                    {
+                        "name": "Celestial Tournament Wins",
+                        "value": response[1].data.statistics.subCategories[10].statistics[4].quantity
+                    }
+                ]
+            }
+
+            message.channel.send({ embed });
+
         }).catch(err => message.reply("I was unable to find the character '" + Cname + "', on the realm '" + Crealm + "', on the '" + Cregion + "' region."));
     }
 }
