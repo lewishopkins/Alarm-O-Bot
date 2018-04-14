@@ -8,6 +8,7 @@ exports.run = (client, message, args) => {
 	const colors = require("../functions/colors.js");
 	const validator = require("../functions/character-validator.js");
 	const progressCalc = require("../functions/progression-calculator.js");
+	const grabData = require("../functions/grab-data.js"); // Grab local info (Race names, class names etc)
     const blizzard = require('blizzard.js').initialize({ apikey: config.BLIZZARD_API_KEY });
 
 	// Validation
@@ -36,7 +37,7 @@ exports.run = (client, message, args) => {
 		
 			// Create Response
 			var embed = {
-				"title": response[0].data.name + ", Level " + response[0].data.level + " " + config.WOW_RaceList[response[0].data.race] + " " + config.WOW_ClassList[response[0].data.class],
+				"title": response[0].data.name + ", Level " + response[0].data.level + " " + grabData.data.GetRaceName(response[0].data.race) + " " + grabData.data.GetClassName(response[0].data.class),
 				"description": response[1].data.items.averageItemLevelEquipped + " Equipped Item Level",
 				"url": "http://render-eu.worldofwarcraft.com/character/" + response[0].data.thumbnail,	// TODO: Set up bot for multiple regions
 				"color": colors.data.GetFactionColor(response[0].data.faction),

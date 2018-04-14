@@ -13,11 +13,8 @@
     "WOW_current_raids" : 3,
     "WOW_last_raid_id" : 39,
     "WOW_max_level_achievement_id" : 10671,
-    
-    "WOW_RaceList" : ["Race #0", "Human", "Orc", "Dwarf", "Undead", "Undead", "Tauren", "Gnome", "Troll", "Goblin", "Blood Elf",
-    "Draenei", "Fel Orc", "Naga", "Broken", "Skeleton", "Vrykul", "Tuskarr", "Forest Troll", "Taunka", "Northrend Skeleton",
-    "Ice Troll", "Worgen", "Gilnean", "Pandaren (Neutral)", "Pandaren (Alliance)", "Pandaren (Horde)", "Nightbourne", "Highmountain Tauren", "Void Elf", "Lightforged Draenei",
-    "Zandalari Troll", "Kul Tiran", "Human [Race #33]", "Dark Iron Dwarf", "Vulpera", "Orc", "Race #37 - currently unlisted"],
-    "WOW_ClassList" : ["Class #0", "Warrior", "Paladin", "Hunter", "Rogue", "Priest", "Death Knight", "Shaman", "Mage", "Warlock", "Monk", "Druid", "Demon Hunter"]
+
+    "WOW_CORE_ClassList":[],
+    "WOW_CORE_RaceList":[]
 
 }

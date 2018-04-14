@@ -1,6 +1,7 @@
 exports.run = (client, message, args) => {
 
 	const config = require("../config.json");
+	const reloaddata = require("../functions/reload-data.js");
     const fs = require("fs");
 	const blizzard = require('blizzard.js').initialize({ apikey: config.BLIZZARD_API_KEY });
 
@@ -33,5 +34,22 @@ exports.run = (client, message, args) => {
 			console.log(response.data);
 			message.reply("please check the console.");
 		});
+	}
+
+	// Save Data
+	if (args[0] === "reload") {
+
+		if (args[1] === "race") {
+			
+			reloaddata.data.SaveRaceList();
+			message.reply("Manually reloading race data.");
+
+		} else if (args[1] === "class") {
+
+			reloaddata.data.SaveClassList();
+			message.reply("Manually reloading class data.");
+
+		} else message.reply("Options: race, class");
+
 	}
 }

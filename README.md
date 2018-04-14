@@ -33,6 +33,7 @@ This bot uses:
 
 !admin validate - Assigns an access token which lasts 30 days, allowing access to commands such as !token
 !admin credentials - Prints details of the credentials to console
+!admin reload [race | class] - Gathers and saves the latest set of information from the API
 !reload filename - Reloads the file so that commands may be edited while the bot is active
 !ping
 ```
