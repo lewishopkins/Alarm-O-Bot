@@ -6,6 +6,9 @@ const bot = new Discord.Client();
 const config = require("./config.json");
 const fs = require("fs");
 
+// Data
+const wowData = require("./data/wow-data.json");
+
 // Required packages
 var blizzard = require('blizzard.js').initialize({ apikey: config.BLIZZARD_API_KEY });
 
@@ -16,7 +19,7 @@ bot.on("ready", () => {
 	bot.user.setGame(config.currently_playing);
 
 	// Test API Validation
-	blizzard.data.validate({ origin: 'eu', token: config.BLIZZARD_API_ACCESS_TOKEN })
+	blizzard.data.validate({ origin: 'eu', token: wowData.BLIZZARD_API_ACCESS_TOKEN })
 	.then(response => {
 		var daysRemaining = (response.data.exp / 86400000);
 		if (!daysRemaining)

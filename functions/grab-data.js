@@ -1,26 +1,26 @@
 // grab-data.js
 // Grabs local data
 
-const config = require("../config.json");
+const wowData = require("../wow-data.json");
 
 var grabData = {};
 
 grabData.GetRaceName = function(raceid) {
 
-    for (var i = 0; i < Object.keys(config.WOW_CORE_RaceList).length; i++) {
+    for (var i = 0; i < Object.keys(wowData.WOW_CORE_RaceList).length; i++) {
 
-        if (config.WOW_CORE_RaceList[i].id === raceid)
-            return config.WOW_CORE_RaceList[i].name;
+        if (wowData.WOW_CORE_RaceList[i].id === raceid)
+            return wowData.WOW_CORE_RaceList[i].name;
     }
     
 };
 
 grabData.GetClassName = function(classid) {
 
-    for (var i = 0; i < Object.keys(config.WOW_CORE_ClassList).length; i++) {
+    for (var i = 0; i < Object.keys(wowData.WOW_CORE_ClassList).length; i++) {
 
-        if (config.WOW_CORE_ClassList[i].id === classid)
-            return config.WOW_CORE_ClassList[i].name;
+        if (wowData.WOW_CORE_ClassList[i].id === classid)
+            return wowData.WOW_CORE_ClassList[i].name;
     }
     
 };

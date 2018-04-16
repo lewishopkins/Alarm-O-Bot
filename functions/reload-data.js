@@ -5,6 +5,9 @@ const config = require("../config.json");
 const blizzard = require('blizzard.js').initialize({ apikey: config.BLIZZARD_API_KEY });
 const fs = require("fs");
 
+// Data files
+const wowData = require("../data/wow-data.json");
+
 var reloadData = {};
 
 reloadData.SaveRaceList = function() {
@@ -19,7 +22,7 @@ reloadData.SaveRaceList = function() {
             }
 
             // Write access token to config file
-            config.WOW_CORE_RaceList = raceList;
+            wowData.WOW_CORE_RaceList = raceList;
             fs.writeFile("./config.json", JSON.stringify(config), (err) => console.error);
 
     });
@@ -38,7 +41,7 @@ reloadData.SaveClassList = function() {
         }
 
         // Write access token to config file
-        config.WOW_CORE_ClassList = classList;
+        wowData.WOW_CORE_ClassList = classList;
         fs.writeFile("./config.json", JSON.stringify(config), (err) => console.error);
 
     });

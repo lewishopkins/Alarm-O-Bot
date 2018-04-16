@@ -1,11 +1,11 @@
 {
-    "token"  : "",
+    "token"  : "Enter your Discord token",
     "prefix" : "!",
-    "admin_role_name" : "Admin",
+    "admin_role_name" : "Type in the name of a role which will have access to all commands",
     "currently_playing" : "World of Warcraft",
 
-    "BLIZZARD_API_KEY" : "",
-    "BLIZZARD_API_SECRET" : "",
+    "BLIZZARD_API_KEY" : "Your Blizzard API key",
+    "BLIZZARD_API_SECRET" : "Your Blizzard API secret",
     "BLIZZARD_API_ACCESS_TOKEN" : "",
 
     "default_region" : "eu",
@@ -13,8 +13,5 @@
     "WOW_current_raids" : 3,
     "WOW_last_raid_id" : 39,
     "WOW_max_level_achievement_id" : 10671,
-
-    "WOW_CORE_ClassList":[],
-    "WOW_CORE_RaceList":[]
 
 }

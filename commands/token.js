@@ -4,6 +4,7 @@
 exports.run = (client, message, args) => {
 
     const config = require("../config.json");
+    const wowData = require("../data/wow-data.json");
     const fs = require("fs");
     const validator = require("../functions/character-validator.js");
     const blizzard = require('blizzard.js').initialize({ apikey: config.BLIZZARD_API_KEY });
@@ -14,7 +15,7 @@ exports.run = (client, message, args) => {
     else {
         var region = regionDetails[1];
 
-        blizzard.data.token({ access_token: config.BLIZZARD_API_ACCESS_TOKEN, namespace: `dynamic-${region}`, origin: region })
+        blizzard.data.token({ access_token: wowData.BLIZZARD_API_ACCESS_TOKEN, namespace: `dynamic-${region}`, origin: region })
         .then(response => {
 
             var GoldResult = String(response.data.price);

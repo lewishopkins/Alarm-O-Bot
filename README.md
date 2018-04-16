@@ -10,7 +10,7 @@ This bot uses:
 
 ## Config
 
-- Rename 'configTEMPLATE.json' to 'config.json'.
+- Rename 'config.json.template' to 'config.json'.
 - Set "admin_role_name" to a Discord role on your server which you are happy to have access to ALL commands - preferably a role which only you have.
 - A default realm and region may be set in the config so that users may leave out those part of the following commands.
 
