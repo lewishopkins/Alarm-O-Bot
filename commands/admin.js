@@ -22,7 +22,7 @@ exports.run = (client, message, args) => {
 
 				// Write access token to config file
 				wowData.BLIZZARD_API_ACCESS_TOKEN = response.data.access_token;
-				fs.writeFile("./config.json", JSON.stringify(config), (err) => console.error);
+				fs.writeFile("./data/wow-data.json", JSON.stringify(config), (err) => console.error);
 
 				console.log('Access token is: ' + response.data.access_token + ' - Access token has been set to the following in config file: ' + wowData.BLIZZARD_API_ACCESS_TOKEN);
 				message.reply("credentials have been set.");
