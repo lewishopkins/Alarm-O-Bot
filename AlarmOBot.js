@@ -1,24 +1,23 @@
 // ALARM-O-BOT
 
-// Set up Bot
+// Packages
 const Discord = require("discord.js");
-const bot = new Discord.Client();
-const config = require("./config.json");
-const fs = require("fs");
+const blizzard = require('blizzard.js').initialize({ apikey: config.BLIZZARD_API_KEY });
 
-// Data
+// Bot
+const bot = new Discord.Client();
+
+// Configs
+const config = require("./config.json");
 const wowData = require("./data/wow-data.json");
 
-// Required packages
-var blizzard = require('blizzard.js').initialize({ apikey: config.BLIZZARD_API_KEY });
 
-// bot Active
 bot.on("ready", () => {
 
 	console.log("\x1b[33m", "Ready to accept commands on Discord!");
 	bot.user.setGame(config.currently_playing);
 
-	// Test API Validation
+	// Test Blizzard API Validation
 	blizzard.data.validate({ origin: 'eu', token: wowData.BLIZZARD_API_ACCESS_TOKEN })
 	.then(response => {
 		var daysRemaining = (response.data.exp / 86400000);
@@ -32,7 +31,7 @@ bot.on("ready", () => {
 
 });
 
-// Someone says something
+
 bot.on("message", message => {
 
 	// Ignore other bots
@@ -44,7 +43,7 @@ bot.on("message", message => {
 	// Check if correct prefix is used
 	if (input.indexOf(config.prefix) !== 0) return;
 	
-	// Detect Commands and Arguments (!Command Argument1 Argument2)
+	// Split command and arguments
 	const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
 	const command = args.shift().toLowerCase();
 	
