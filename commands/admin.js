@@ -21,16 +21,16 @@ exports.run = (client, message, args) => {
 				console.log(response.data);
 
 				// Write access token to config file
-				wowData.BLIZZARD_API_ACCESS_TOKEN = response.data.access_token;
-				fs.writeFile("./data/wow-data.json", JSON.stringify(wowData), (err) => console.error);
+				config.BLIZZARD_API_ACCESS_TOKEN = response.data.access_token;
+				fs.writeFile("./config.json", JSON.stringify(config), (err) => console.error);
 
-				console.log('Access token is: ' + response.data.access_token + ' - Access token has been set to the following in config file: ' + wowData.BLIZZARD_API_ACCESS_TOKEN);
+				console.log('Access token is: ' + response.data.access_token + ' - Access token has been set to the following in config file: ' + config.BLIZZARD_API_ACCESS_TOKEN);
 				message.reply("credentials have been set.");
 			});
 		}
 		
 	if (args[0] === "validate") {
-	blizzard.data.validate({ origin: 'eu', token: wowData.BLIZZARD_API_ACCESS_TOKEN })
+	blizzard.data.validate({ origin: 'eu', token: config.BLIZZARD_API_ACCESS_TOKEN })
 		.then(response => {
 			console.log(response.data);
 			message.reply("please check the console.");

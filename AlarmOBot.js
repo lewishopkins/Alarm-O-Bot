@@ -9,7 +9,6 @@ const bot = new Discord.Client();
 
 // Configs
 const config = require("./config.json");
-const wowData = require("./data/wow-data.json");
 
 
 bot.on("ready", () => {
@@ -18,7 +17,7 @@ bot.on("ready", () => {
 	bot.user.setGame(config.currently_playing);
 
 	// Test Blizzard API Validation
-	blizzard.data.validate({ origin: 'eu', token: wowData.BLIZZARD_API_ACCESS_TOKEN })
+	blizzard.data.validate({ origin: 'eu', token: config.BLIZZARD_API_ACCESS_TOKEN })
 	.then(response => {
 		var daysRemaining = (response.data.exp / 86400000);
 		if (!daysRemaining)
