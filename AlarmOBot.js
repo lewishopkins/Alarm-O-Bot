@@ -1,15 +1,14 @@
 // ALARM-O-BOT
 
+// Configs
+const config = require("./config.json");
+
 // Packages
 const Discord = require("discord.js");
 const blizzard = require('blizzard.js').initialize({ apikey: config.BLIZZARD_API_KEY });
 
 // Bot
 const bot = new Discord.Client();
-
-// Configs
-const config = require("./config.json");
-
 
 bot.on("ready", () => {
 
