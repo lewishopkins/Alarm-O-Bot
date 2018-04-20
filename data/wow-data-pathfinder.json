@@ -1,0 +1,49 @@
+{
+    "WOW_LEGION_Pathfinder": [
+        {
+            "id": 11190,
+            "name": "Broken Isles Pathfinder, Part One",
+            "META_single": [
+                {"id": 11188, "name": "Broken Isles Explorer", "desc": "Explore the entire Broken Isles continent."},
+                {"id": 11189, "name": "Variety is the Spice of Life", "desc": "Complete 100 World Quests."},
+                {"id": 10994, "name": "A Glorious Campaign", "desc": "Complete your class order campaign."}
+            ],
+            "META_reps": {
+                "id": 10672,
+                "list": [
+                    {"id": 1900, "name": "Court of Farondis", "standing": 6},
+                    {"id": 1883, "name": "The Dreamweavers", "standing": 6},
+                    {"id": 1828, "name": "Highmountain Tribe", "standing": 6},
+                    {"id": 1984, "name": "The Valarjar", "standing": 6},
+                    {"id": 1859, "name": "The Nightfallen", "standing": 6},
+                    {"id": 1894, "name": "The Wardens", "standing": 6}
+                ]
+            },
+            "META_loremaster": {
+                "id": 11157,
+                "list": [
+                    {"id": 10763, "name": "Azsuna"},
+                    {"id": 10698, "name": "Val'sharah"},
+                    {"id": 10790, "name": "Stormheim"},
+                    {"id": 10059, "name": "Highmountain"},
+                    {"id": 11124, "name": "Suramar"}
+                ]
+            }
+        },
+
+        {
+            "id": 11446,
+            "name": "Broken Isles Pathfinder, Part Two",
+            "META_single": [
+                {"id": 11543, "name": "Explore Broken Shore", "desc": "Explore the Broken Shore"}
+            ],
+            "META_reps": {
+                "id": 11545,
+                "list": [
+                    {"id": 2045, "name": "Armies of Legionfall", "standing": 6}
+                ]
+            }
+        }
+
+    ]
+}

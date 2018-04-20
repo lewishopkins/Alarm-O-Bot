@@ -25,6 +25,8 @@ reloadData.SaveRaceList = function() {
             wowData.WOW_CORE_RaceList = raceList;
             fs.writeFile("./data/wow-data.json", JSON.stringify(wowData), (err) => console.error);
 
+            console.log("\x1b[36m", "[RELOAD:Race] Process has completed.");
+
     });
     
 };
@@ -43,6 +45,8 @@ reloadData.SaveClassList = function() {
         // Write access token to config file
         wowData.WOW_CORE_ClassList = classList;
         fs.writeFile("./data/wow-data.json", JSON.stringify(wowData), (err) => console.error);
+
+        console.log("\x1b[36m", "[RELOAD:Class] Process has completed.");
 
     });
 

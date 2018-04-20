@@ -50,7 +50,7 @@ exports.run = (client, message, args) => {
 			reloaddata.data.SaveClassList();
 			message.reply("Manually reloading class data.");
 
-		} else message.reply("Options: race, class");
+		} else message.reply("Options: [race | class]");
 
 	}
 }
