@@ -1,7 +1,7 @@
 // calculate-pathfinder-legion.js
 // 
 
-const wowDataPathfinder = require("../wow-data-pathfinder.json");
+const wowDataPathfinder = require("../data/wow-data-pathfinder.json");
 
 var pathfinder = {};
 

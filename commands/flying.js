@@ -8,7 +8,7 @@ exports.run = (client, message, args) => {
     const blizzard = require('blizzard.js').initialize({ apikey: config.BLIZZARD_API_KEY });
 
     // Pathfinder Data
-    const pathfinder = require("../wow-data-pathfinder.json");
+    const pathfinder = require("../data/wow-data-pathfinder.json");
     const pathfinderCalculator = require("../functions/calculate-pathfinder-legion.js");
 
     // Validation
@@ -54,13 +54,13 @@ exports.run = (client, message, args) => {
                     },
                     {
                         "name": "Broken Isles Pathfinder, Part Two",
-                        "value": "example"
+                        "value": "Example"
                     }
                 ]
         }
 
         //message.channel.send({ embed });
-        console.log("Attempted to use Flying command.");
+        console.log("Attempted to use Flying command, but it has been disabled in the code.");
 
         });
     }

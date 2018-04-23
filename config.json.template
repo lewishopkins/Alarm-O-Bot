@@ -4,6 +4,8 @@
     "admin_role_name": "Type in the name of a role which will have access to all commands",
     "currently_playing": "World of Warcraft",
 
+    "DEBUG_commands": 0,
+
     "BLIZZARD_API_KEY": "Your Blizzard API key",
     "BLIZZARD_API_SECRET": "Your Blizzard API secret",
     "BLIZZARD_API_ACCESS_TOKEN": "",
