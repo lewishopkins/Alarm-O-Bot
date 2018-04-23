@@ -30,9 +30,24 @@ pathfinder.PlayerHasAchievement = function(achievementList, needle) {
 
 };
 
+// How many zones has the player explored
+pathfinder.PlayerHasExplored = function(achievementList) {
+
+    var ZoneAchievements = [10665, 10666, 10667, 10668, 10669];
+    var j = 0;
+
+    for (var i = 0; i < ZoneAchievements.length; i++) {
+        if (achievementList.includes(ZoneAchievements[i]))
+            j++
+    }
+
+    // Return num/Maximum in array
+    return [j, ZoneAchievements.length];
+    
+};
+
 pathfinder.PlayerHasReputation = function(reputationList, reputation, required) {
 
-    return null;
     
 }
 

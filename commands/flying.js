@@ -45,16 +45,16 @@ exports.run = (client, message, args) => {
                 },
                 "fields": [
                     {
-                        "name": `${pathfinderCalculator.data.PlayerHasAchievement(achievementList, pathfinder.WOW_LEGION_Pathfinder[0].id)} ${pathfinder.WOW_LEGION_Pathfinder[0].name}`,
-                        "value": `${pathfinderCalculator.data.PlayerHasAchievement(achievementList, pathfinder.WOW_LEGION_Pathfinder[0].META_single[0].id)} ${pathfinder.WOW_LEGION_Pathfinder[0].META_single[0].desc}`,
-                        "value": `${pathfinderCalculator.data.PlayerHasAchievement(achievementList, pathfinder.WOW_LEGION_Pathfinder[0].META_single[1].id)} ${pathfinder.WOW_LEGION_Pathfinder[0].META_single[1].desc}`,
-                        "value": `${pathfinderCalculator.data.PlayerHasAchievement(achievementList, pathfinder.WOW_LEGION_Pathfinder[0].META_single[2].id)} ${pathfinder.WOW_LEGION_Pathfinder[0].META_single[2].desc}`,
-                        "value": `${pathfinderCalculator.data.PlayerHasAchievement(achievementList, pathfinder.WOW_LEGION_Pathfinder[0].META_reps.id)} ${pathfinder.WOW_LEGION_Pathfinder[0].META_reps.desc}`,
-                        "value": `${pathfinderCalculator.data.PlayerHasAchievement(achievementList, pathfinder.WOW_LEGION_Pathfinder[0].META_loremaster.id)} ${pathfinder.WOW_LEGION_Pathfinder[0].META_loremaster.desc}`,
+                        "name": `${pathfinderCalculator.data.PlayerHasAchievement(achievementList, 11188)} Broken Isles Explorer`,
+                        "value": `Explore X out of Y zones on the Broken Isles.`,
                     },
                     {
-                        "name": "Broken Isles Pathfinder, Part Two",
-                        "value": "Example"
+                        "name": `${pathfinderCalculator.data.PlayerHasAchievement(achievementList, 11189)} Variety is the Spice of Life`,
+                        "value": "Complete 100 world quests on the Broken Isles continent."
+                    },
+                    {
+                        "name": `${pathfinderCalculator.data.PlayerHasAchievement(achievementList, 10994)} A Glorious Campaign`,
+                        "value": "Complete your entire class order hall campaign."
                     }
                 ]
         }
