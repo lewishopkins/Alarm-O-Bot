@@ -43,24 +43,11 @@ exports.run = (client, message, args) => {
                     "name": "Pathfinder Checker",
                     "icon_url": "https://cdn.discordapp.com/embed/avatars/0.png"
                 },
-                "fields": [
-                    {
-                        "name": `${pathfinderCalculator.data.PlayerHasAchievement(achievementList, 11188)} Broken Isles Explorer`,
-                        "value": `Explore X out of Y zones on the Broken Isles.`,
-                    },
-                    {
-                        "name": `${pathfinderCalculator.data.PlayerHasAchievement(achievementList, 11189)} Variety is the Spice of Life`,
-                        "value": "Complete 100 world quests on the Broken Isles continent."
-                    },
-                    {
-                        "name": `${pathfinderCalculator.data.PlayerHasAchievement(achievementList, 10994)} A Glorious Campaign`,
-                        "value": "Complete your entire class order hall campaign."
-                    }
-                ]
+                "fields": pathfinderCalculator.data.Legion(achievementList)
         }
 
-        //message.channel.send({ embed });
-        console.log("Attempted to use Flying command, but it has been disabled in the code.");
+        message.channel.send({ embed });
+        //console.log("Attempted to use Flying command, but it has been disabled in the code.");
 
         });
     }
