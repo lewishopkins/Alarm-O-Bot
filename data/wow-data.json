@@ -75,6 +75,14 @@
         {
             "id": 30,
             "name": "Lightforged Draenei"
+        },
+        {
+            "id": 34,
+            "name": "Dark Iron Dwarf"
+        },
+        {
+            "id": 36,
+            "name": "Mag'har Orc"
         }
     ],
     "WOW_CORE_ClassList": [

@@ -1,12 +1,10 @@
 // TOKEN
 // Lists the current token price in the EU region.
 
-exports.run = (client, message, args) => {
+exports.run = (client, message, args, blizzard, config) => {
 
-    const config = require("../config.json");
     const fs = require("fs");
     const validator = require("../functions/character-validator.js");
-    const blizzard = require('blizzard.js').initialize({ apikey: config.BLIZZARD_API_KEY });
 
     var regionDetails = validator.data.ValidateRegion(args);
     if (regionDetails[0] === 0)

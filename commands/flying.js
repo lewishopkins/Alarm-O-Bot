@@ -1,11 +1,9 @@
 // FLYING
 // Determines how much progression is required to unlock flying on a character.
 
-exports.run = (client, message, args) => {
+exports.run = (client, message, args, blizzard, config) => {
 
-    const config = require("../config.json");
     const validator = require("../functions/character-validator.js");
-    const blizzard = require('blizzard.js').initialize({ apikey: config.BLIZZARD_API_KEY });
 
     // Pathfinder Data
     const pathfinder = require("../data/wow-data-pathfinder.json");
@@ -22,7 +20,7 @@ exports.run = (client, message, args) => {
         var Crealm = characterDetails[1];
         var Cregion = characterDetails[2]; 
 
-        blizzard.wow.character(['profile', 'achievements', 'reputation'], { realm: Crealm, name: Cname, origin: Cregion })
+        blizzard.wow.character(['profile', 'achievements', 'reputation'], { realm: Crealm, name: Cname, origin: Cregion, token: config.BLIZZARD_API_ACCESS_TOKEN })
         .then(response => {
 
             //console.log(response.data.achievements.achievementsCompleted);

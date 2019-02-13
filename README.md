@@ -8,11 +8,26 @@ This bot uses:
 - Discord.js - A node.js module which allows for easy interaction with the Discord API.
 - Blizzard.js - A node.js promise-based module which allows access to the Blizzard API.
 
-## Config
+## Set up
+
+- Download and Install [Node.js](https://nodejs.org/en/)
+- Install Discord.js
+
+```
+npm install discord.js
+```
+
+- Install Blizzard.js
+
+```
+npm install blizzard.js
+```
 
 - Rename 'config.json.template' to 'config.json'.
+- Go to the [Battle.net Develop website](https://develop.battle.net/) to get your Client ID and Client Secret, and enter them into the config.
 - Set "admin_role_name" to a Discord role on your server which you are happy to have access to ALL commands - preferably a role which only you have.
 - A default realm and region may be set in the config so that users may leave out those part of the following commands.
+- Go to the [Discord Developer Portal](https://discordapp.com/developers) and create a new application.
 
 ## Commands
 

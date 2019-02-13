@@ -1,7 +1,7 @@
 // grab-data.js
 // Grabs local data
 
-const wowData = require("../wow-data.json");
+const wowData = require("../data/wow-data.json");
 
 var grabData = {};
 

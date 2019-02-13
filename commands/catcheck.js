@@ -1,11 +1,9 @@
 // CATCHECK
 // Checks to see how many Cat pets the player has
 
-exports.run = (client, message, args) => {
- 
-    const config = require("../config.json");
+exports.run = (client, message, args, blizzard, config) => {
+     
     const fs = require("fs");
-    const blizzard = require('blizzard.js').initialize({ apikey: config.BLIZZARD_API_KEY });
 
     // Adjective Generator
     function RandomAdjective() {
@@ -28,7 +26,7 @@ exports.run = (client, message, args) => {
     var Cregion = characterDetails[2];
 
 
-        blizzard.wow.character(['profile', 'pets'], { realm: Crealm, name: Cname, origin: Cregion })
+        blizzard.wow.character(['profile', 'pets'], { realm: Crealm, name: Cname, origin: Cregion, token: config.BLIZZARD_API_ACCESS_TOKEN })
             .then(response => {
 
                 var CatList = [7385, 7384, 7381, 7382, 7386, 7380, 34364, 56031, 53884, 61883, 52344, 36511, 7383, 53283, 71942, 62019, 62129, 68838, 62257, 61689, 68655, 52226, 68267, 85283, 68502];

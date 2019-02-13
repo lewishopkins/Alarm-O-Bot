@@ -5,21 +5,27 @@ const config = require("./config.json");
 
 // Packages
 const Discord = require("discord.js");
-const blizzard = require('blizzard.js').initialize({ apikey: config.BLIZZARD_API_KEY });
+const blizzard = require('blizzard.js').initialize({ key: config.BLIZZARD_API_KEY, secret: config.BLIZZARD_API_SECRET, origin: config.default_region });
+const fs = require("fs");
 
 // Bot
 const bot = new Discord.Client();
 
 bot.on("ready", () => {
 
+	// Validate Blizzard Token
+	blizzard.getApplicationToken({
+		key: config.BLIZZARD_API_KEY,
+		secret: config.BLIZZARD_API_SECRET,
+		origin: config.default_region
+	}).then(response => {
+		console.log(response.data);
+		config.BLIZZARD_API_ACCESS_TOKEN = response.data.access_token;
+		fs.writeFile("./config.json", JSON.stringify(config), (err) => console.error);
+	});
+
 	console.log("\x1b[33m", "Ready to accept commands on Discord!");
 	bot.user.setGame(config.currently_playing);
-
-	// Test Blizzard API Validation
-	blizzard.data.validate({ origin: 'eu', token: config.BLIZZARD_API_ACCESS_TOKEN })
-	.then(response => {
-		console.log("\x1b[36m", "[Blizzard] Your Blizzard API Access Token is currently ACTIVE.");
-	}).catch(err => console.log("\x1b[36m", "[Blizzard] WARNING: Blizzard API Access Token has EXPIRED.\nPlease renew your API token by typing '!admin credentials' in Discord."));
 
 });
 
@@ -44,7 +50,7 @@ bot.on("message", message => {
 	// Find command in commands folder
 	try {
 		let commandFile = require(`./commands/${command}.js`);
-		commandFile.run(bot, message, args);
+		commandFile.run(bot, message, args, blizzard, config);
 	} catch (err) {
 		console.error(err);
 	}

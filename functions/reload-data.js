@@ -12,7 +12,7 @@ var reloadData = {};
 
 reloadData.SaveRaceList = function() {
 
-    blizzard.wow.data('character-races', { origin: 'us' })
+    blizzard.wow.data('character-races', { origin: 'us', token: config.BLIZZARD_API_ACCESS_TOKEN })
         .then(response => {
 
             var raceList = [];
@@ -33,7 +33,7 @@ reloadData.SaveRaceList = function() {
 
 reloadData.SaveClassList = function() {
 
-    blizzard.wow.data('character-classes', { origin: 'us' })
+    blizzard.wow.data('character-classes', { origin: 'us', token: config.BLIZZARD_API_ACCESS_TOKEN })
     .then(response => {
 
         var classList = [];

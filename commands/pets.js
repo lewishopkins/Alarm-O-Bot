@@ -1,12 +1,10 @@
 // PETS
 // Reports back number of pet battle pets unlocked.
 
-exports.run = (client, message, args) => {
- 
-    const config = require("../config.json");
+exports.run = (client, message, args, blizzard, config) => {
+
     const validator = require("../functions/character-validator.js");
     const fs = require("fs");
-    const blizzard = require('blizzard.js').initialize({ apikey: config.BLIZZARD_API_KEY });
 
     // Validation
     var characterDetails = validator.data.ValidateCharacter(args);
@@ -20,9 +18,9 @@ exports.run = (client, message, args) => {
         var Cregion = characterDetails[2];
 
         // Queries
-        var Ppets = blizzard.wow.character(['profile', 'pets'], { realm: Crealm, name: Cname, origin: Cregion });
+        var Ppets = blizzard.wow.character(['profile', 'pets'], { realm: Crealm, name: Cname, origin: Cregion, token: config.BLIZZARD_API_ACCESS_TOKEN });
         //var PpetSlots = blizzard.wow.character(['petSlots'], { realm: Crealm, name: Cname, origin: Cregion });  // Not in Use
-        var Pstatistics = blizzard.wow.character(['statistics'], {realm: Crealm, name: Cname, origin: Cregion });
+        var Pstatistics = blizzard.wow.character(['statistics'], {realm: Crealm, name: Cname, origin: Cregion, token: config.BLIZZARD_API_ACCESS_TOKEN });
 
         // Gather data
 		var results = Promise.all([Ppets, Pstatistics]);

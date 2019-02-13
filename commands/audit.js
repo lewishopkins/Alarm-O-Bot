@@ -1,13 +1,11 @@
 // AUDIT
 // Check for errors in a player's loadout
 
-exports.run = (client, message, args) => {
+exports.run = (client, message, args, blizzard, config) => {
 
-	const config = require("../config.json");
 	const fs = require("fs");
 	const validator = require("../functions/character-validator.js");
 	const auditor = require("../functions/audit-parse.js");
-    const blizzard = require('blizzard.js').initialize({ apikey: config.BLIZZARD_API_KEY });
 
 	// Validation
 	var characterDetails = validator.data.ValidateCharacter(args);
@@ -24,7 +22,7 @@ exports.run = (client, message, args) => {
 		var Cregion = characterDetails[2];
 
 		// Gather data
-		blizzard.wow.character(['audit'], { realm: Crealm, name: Cname, origin: Cregion })
+		blizzard.wow.character(['audit'], { realm: Crealm, name: Cname, origin: Cregion, token: config.BLIZZARD_API_ACCESS_TOKEN })
 	    .then(response => {
 
 			console.log(response.data);

@@ -1,10 +1,8 @@
-exports.run = (client, message, args) => {
+exports.run = (client, message, args, blizzard, config) => {
 
-	const config = require("../config.json");
 	const wowData = require("../data/wow-data.json");
 	const reloaddata = require("../functions/reload-data.js");
     const fs = require("fs");
-	const blizzard = require('blizzard.js').initialize({ apikey: config.BLIZZARD_API_KEY });
 
 	// Check Role/Command Permissions
 	var AllowedRoles = ["Mod"];
@@ -15,7 +13,7 @@ exports.run = (client, message, args) => {
 		return;
 
     if (args[0] === "credentials") {
-		blizzard.data.credentials({id: config.BLIZZARD_API_KEY, secret: config.BLIZZARD_API_SECRET, origin: 'eu' })
+		blizzard.data.credentials({id: config.BLIZZARD_API_KEY, secret: config.BLIZZARD_API_SECRET, origin: 'eu', token: config.BLIZZARD_API_ACCESS_TOKEN })
 			.then(response => {
 				console.log('Results of authenticating credentials:');
 				console.log(response.data);

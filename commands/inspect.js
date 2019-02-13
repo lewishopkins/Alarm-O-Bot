@@ -1,15 +1,13 @@
 // INSPECT
 // Look up raid progression
 
-exports.run = (client, message, args) => {
+exports.run = (client, message, args, blizzard, config) => {
 
-	const config = require("../config.json");
 	const fs = require("fs");
 	const colors = require("../functions/colors.js");
 	const validator = require("../functions/character-validator.js");
 	const progressCalc = require("../functions/progression-calculator.js");
-	const grabData = require("../functions/grab-data.js"); // Grab local info (Race names, class names etc)
-    const blizzard = require('blizzard.js').initialize({ apikey: config.BLIZZARD_API_KEY });
+	const grabData = require("../functions/grab-data.js");
 
 	// Validation
 	var characterDetails = validator.data.ValidateCharacter(args);
@@ -26,10 +24,10 @@ exports.run = (client, message, args) => {
 		var Cregion = characterDetails[2];
 				
 		// Prepare data
-		var Pcharacter = blizzard.wow.character(['profile'], { origin: Cregion, realm: Crealm, name: Cname });
-		var Pitems = blizzard.wow.character(['items'], { origin: Cregion, realm: Crealm, name: Cname});
-		var Pprogression = blizzard.wow.character(['progression'], { origin: Cregion, realm: Crealm, name: Cname});
-		var Braces = blizzard.wow.data('character-races', { origin: Cregion });
+		var Pcharacter = blizzard.wow.character(['profile'], { origin: Cregion, realm: Crealm, name: Cname, token: config.BLIZZARD_API_ACCESS_TOKEN });
+		var Pitems = blizzard.wow.character(['items'], { origin: Cregion, realm: Crealm, name: Cname, token: config.BLIZZARD_API_ACCESS_TOKEN});
+		var Pprogression = blizzard.wow.character(['progression'], { origin: Cregion, realm: Crealm, name: Cname, token: config.BLIZZARD_API_ACCESS_TOKEN});
+		var Braces = blizzard.wow.data('character-races', { origin: Cregion, token: config.BLIZZARD_API_ACCESS_TOKEN });
 
 		// Gather data
 		var results = Promise.all([Pcharacter, Pitems, Pprogression, Braces]);

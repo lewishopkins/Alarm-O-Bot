@@ -1,9 +1,8 @@
 // COMMANDS
 // Responds a list of commands
 
-exports.run = (client, message, args) => {
+exports.run = (client, message, args, blizzard, config) => {
 
-    const config = require("../config.json");
     const fs = require("fs");
 
     message.channel.send(`
