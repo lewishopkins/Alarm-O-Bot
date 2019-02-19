@@ -2,6 +2,8 @@
 
 This is a simple bot for World of Warcraft Discord servers.
 
+The main purpose of the bot is to easily access information about players, including PvP ratings and PvE progression. There are also commands to retrieve token prices, check Pathfinder progress and see pet battle information.
+
 This bot uses:
 
 - Node.js - A server framework which is used to create scalable network applications.
@@ -29,35 +31,33 @@ npm install blizzard.js
 - A default realm and region may be set in the config so that users may leave out those part of the following commands.
 - Go to the [Discord Developer Portal](https://discordapp.com/developers) and create a new application.
 - Convert the application into a bot, place the discord token into "Token" in the config.
-- Invite your bot to your discord server.
+- Invite your bot to your discord server (To do this, on your bot page, go to the 'OAuth2' page, in the Scopes section tick 'Bot', and then copy and paste the link into your browser.)
 - Run startAlarmOBot.bat
 
 ## Commands
 
 - Realms with more than one word (Eg Argent Dawn) must replace spaces with dashes (Argent-Dawn).
-- The bot must be validated through Blizzard before it may use certain commands such as '!token'. To do this, use the '!admin validate' command, which will add the "BLIZZARD_API_ACCESS_TOKEN" to your config file for you. This token expires after 30 days. This will be automated in the future.
+- Set a default realm and region within your config.json file.
 
-```
-!inspect Name Realm-Name region - Displays basic character information, item level and raid progression
-!token region - Current token price (in Gold) for the specified region
+```!inspect [name] [realm-name] [region]``` - Displays basic character information, item level and raid progression
+```!token [region]``` - Current token price (in Gold) for the specified region
 
-!2v2 - 2v2 Arena Stats (Season statistics including rating, alongside all-time wins and losses)
-!3v3 - 3v3 Arena Stats
-!RBG - RBG Arena Stats
+```!2v2 [name] [realm-name] [region]``` - 2v2 Arena Stats (Season statistics including rating, alongside all-time wins and losses)
+```!3v3 [name] [realm-name] [region]``` - 3v3 Arena Stats
+```!RBG [name] [realm-name] [region]``` - RBG Arena Stats
+```!PVP [name] [realm-name] [region]``` - Displays various PVP Statistics, including Duels, Battlegrounds and Honorable Kill stats.
 
-!PVP - Displays various PVP Statistics, including Duels, Battlegrounds and Honorable Kill stats.
-!pets - Stats on the player's pets and pet battles
-!catcheck - Displays how many cats the player has
+```!pets [name] [realm-name] [region]``` - Stats on the player's pets and pet battles
+```!catcheck [name] [realm-name] [region]``` - Displays how many cats the player has
 
-!admin validate - Assigns an access token which lasts 30 days, allowing access to commands such as !token
-!admin credentials - Prints details of the credentials to console
-!admin reload [race | class] - Gathers and saves the latest set of information from the API
-!reload filename - Reloads the file so that commands may be edited while the bot is active
-!ping
-```
+```!admin reload [race | class]``` - Gathers and saves the latest set of information from the API
+```!reload filename``` - Reloads the file so that commands may be edited while the bot is active
+```!ping```
+
 
 ## Maintenance
 
 Considerations for adjusting to API changes over time:
 
+- When a new raid is released, update the 'current raid ID' and 'number of raids to track' in the config to adjust the ```!inspect``` command.
 - When a new battleground is added to the game, the exact area in the statistics array to find RBG games played and RBG wins may have shifted.

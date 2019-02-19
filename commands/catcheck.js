@@ -4,6 +4,7 @@
 exports.run = (client, message, args, blizzard, config) => {
 
     const fs = require("fs");
+    const validator = require("../functions/character-validator.js");
 
     // Adjective Generator
     function RandomAdjective() {
@@ -25,7 +26,7 @@ exports.run = (client, message, args, blizzard, config) => {
     var Crealm = characterDetails[1];
     var Cregion = characterDetails[2];
 
-
+    
         blizzard.wow.character(['profile', 'pets'], { realm: Crealm, name: Cname, origin: Cregion, token: config.BLIZZARD_API_ACCESS_TOKEN })
             .then(response => {
 

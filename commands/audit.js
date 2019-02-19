@@ -3,6 +3,9 @@
 
 exports.run = (client, message, args, blizzard, config) => {
 
+	// Temporarily disable this command.
+	return;
+
 	const fs = require("fs");
 	const validator = require("../functions/character-validator.js");
 	const auditor = require("../functions/audit-parse.js");
