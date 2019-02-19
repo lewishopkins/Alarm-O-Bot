@@ -7,7 +7,9 @@ exports.run = (client, message, args, blizzard, config) => {
 
     // Pathfinder Data
     const pathfinder = require("../data/wow-data-pathfinder.json");
-    const pathfinderCalculator = require("../functions/calculate-pathfinder-legion.js");
+    const pathfinderCalculator = require("../functions/calculate-pathfinder.js");
+    const colors = require("../functions/colors.js");
+
 
     // Validation
     var characterDetails = validator.data.ValidateCharacter(args);
@@ -28,24 +30,23 @@ exports.run = (client, message, args, blizzard, config) => {
             var achievementList = response.data.achievements.achievementsCompleted;
 
             var embed = {
-                "color": 4558586,
+				"color": colors.data.GetFactionColor(response.data.faction),
                 "timestamp": new Date(),
                 "footer": {
-                    "icon_url": "https://cdn.discordapp.com/embed/avatars/0.png",
+                    "icon_url": "https://i.imgur.com/wWDy4Ou.jpg",
                     "text": "Alarm-o-Bot"
                 },
                 "thumbnail": {
-                    "url": "https://cdn.discordapp.com/embed/avatars/0.png"
-                },
+					"url": "http://render-eu.worldofwarcraft.com/character/" + response.data.thumbnail
+				},
                 "author": {
                     "name": "Pathfinder Checker",
-                    "icon_url": "https://cdn.discordapp.com/embed/avatars/0.png"
+                    "icon_url": "https://i.imgur.com/wWDy4Ou.jpg"
                 },
-                "fields": pathfinderCalculator.data.Legion(achievementList)
+                "fields": pathfinderCalculator.data.Battle(achievementList)
         }
 
         message.channel.send({ embed });
-        //console.log("Attempted to use Flying command, but it has been disabled in the code.");
 
         });
     }

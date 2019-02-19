@@ -26,7 +26,7 @@ exports.run = (client, message, args, blizzard, config) => {
           "color": colors.data.GetFactionColor(response.data.faction),
           "timestamp": new Date(),
           "footer": {
-            "icon_url": "https://i.imgur.com/fl22N7v.png",
+            "icon_url": "https://i.imgur.com/wWDy4Ou.jpg",
             "text": "Alarm-o-Bot"
           },
           "thumbnail": {
@@ -34,7 +34,7 @@ exports.run = (client, message, args, blizzard, config) => {
           },
           "author": {
             "name": "Arena Checker",
-            "icon_url": "https://i.imgur.com/fl22N7v.png"
+            "icon_url": "https://i.imgur.com/wWDy4Ou.jpg"
           },
           "fields": [
             {

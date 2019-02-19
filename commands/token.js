@@ -15,8 +15,6 @@ exports.run = (client, message, args, blizzard, config) => {
         blizzard.wow.token({ region: "eu", token: config.BLIZZARD_API_ACCESS_TOKEN })
         .then(response => {
 
-            console.log(response.data);
-
             var GoldResult = String(response.data.price);
             
             // Remove Copper/Silver
@@ -41,7 +39,7 @@ exports.run = (client, message, args, blizzard, config) => {
                 },
                 "fields": [
                     {
-                        "name": "Region: EU",
+                        "name": `Region: ${config.default_region}`,
                         "value": GFinal
                     }
                 ]
@@ -49,6 +47,6 @@ exports.run = (client, message, args, blizzard, config) => {
             
         // Send message
         message.channel.send({ embed });
-        });
+        }).catch(console.error);
     }   
 }

@@ -22,14 +22,11 @@ exports.run = (client, message, args, blizzard, config) => {
         blizzard.wow.character(['profile', 'pvp', 'statistics'], { realm: Crealm, name: Cname, origin: Cregion, token: config.BLIZZARD_API_ACCESS_TOKEN })
         .then(response => {
 
-            //console.log(response.data.statistics.subCategories[9]);
-            console.log(response.data.statistics.subCategories[9].subCategories[1]);
-
             var embed = {
                 "color": colors.data.GetFactionColor(response.data.faction),
                 "timestamp": new Date(),
                 "footer": {
-                    "icon_url": "https://i.imgur.com/fl22N7v.png",
+                    "icon_url": "https://i.imgur.com/wWDy4Ou.jpg",
                     "text": "Alarm-o-Bot"
                 },
                 "thumbnail": {
@@ -37,7 +34,7 @@ exports.run = (client, message, args, blizzard, config) => {
                 },
                 "author": {
                     "name": "PvP Statistics",
-                    "icon_url": "https://i.imgur.com/fl22N7v.png"
+                    "icon_url": "https://i.imgur.com/wWDy4Ou.jpg"
                 },
                 "fields": [
                         {

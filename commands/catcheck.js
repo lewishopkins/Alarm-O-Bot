@@ -2,7 +2,7 @@
 // Checks to see how many Cat pets the player has
 
 exports.run = (client, message, args, blizzard, config) => {
-     
+
     const fs = require("fs");
 
     // Adjective Generator

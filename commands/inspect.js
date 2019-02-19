@@ -40,8 +40,8 @@ exports.run = (client, message, args, blizzard, config) => {
 				"color": colors.data.GetFactionColor(response[0].data.faction),
 				"timestamp": new Date(),
 				"footer": {
-					"icon_url": "http://render-eu.worldofwarcraft.com/character/" + response[0].data.thumbnail,
-					"text": ":)"
+					"icon_url": "https://i.imgur.com/wWDy4Ou.jpg",
+					"text": "Alarm-o-Bot"
 				},
 				"thumbnail": {
 					"url": "http://render-eu.worldofwarcraft.com/character/" + response[0].data.thumbnail
@@ -50,9 +50,8 @@ exports.run = (client, message, args, blizzard, config) => {
 					"url": "https://i.imgur.com/k9L0E8Z.png"
 				},
 				"author": {
-					"name": "Raid Check",
-					"url": "https://discordapp.com",
-					"icon_url": `https://worldofwarcraft.com/en-${Cregion}/character/${Crealm}/${Cname}`
+					"name": "Raid Inspect",
+					"icon_url": `https://i.imgur.com/wWDy4Ou.jpg`
 				},
 				"fields": progressCalc.data.PopulateProgressFields(response)
 			};

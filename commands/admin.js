@@ -4,36 +4,37 @@ exports.run = (client, message, args, blizzard, config) => {
 	const reloaddata = require("../functions/reload-data.js");
     const fs = require("fs");
 
-	// Check Role/Command Permissions
-	var AllowedRoles = ["Mod"];
 	// Check roles
 	const RoleChecker = require("../functions/check-roles.js");
-	var RoleCheck = RoleChecker.data.CheckPermissions(message, AllowedRoles);
+	var RoleCheck = RoleChecker.data.CheckPermissions(message, config.admin_role_name);
+
+	// Check Permissions
 	if (!RoleCheck)
 		return;
 
     if (args[0] === "credentials") {
-		blizzard.data.credentials({id: config.BLIZZARD_API_KEY, secret: config.BLIZZARD_API_SECRET, origin: 'eu', token: config.BLIZZARD_API_ACCESS_TOKEN })
-			.then(response => {
-				console.log('Results of authenticating credentials:');
-				console.log(response.data);
 
-				// Write access token to config file
-				config.BLIZZARD_API_ACCESS_TOKEN = response.data.access_token;
-				fs.writeFile("./config.json", JSON.stringify(config), (err) => console.error);
+		console.log("\x1b[33m", `New Blizzard credentials requested by user ${message.author.username}#${message.author.discriminator} [${message.author.id}]`);
 
-				console.log('Access token is: ' + response.data.access_token + ' - Access token has been set to the following in config file: ' + config.BLIZZARD_API_ACCESS_TOKEN);
-				message.reply("credentials have been set.");
-			});
-		}
-		
-	if (args[0] === "validate") {
-	blizzard.data.validate({ origin: 'eu', token: config.BLIZZARD_API_ACCESS_TOKEN })
+		blizzard.getApplicationToken({
+			key: config.BLIZZARD_API_KEY,
+			secret: config.BLIZZARD_API_SECRET,
+			origin: config.default_region
+		})
 		.then(response => {
-			console.log(response.data);
-			message.reply("please check the console.");
+			// Write API Access Token
+			config.BLIZZARD_API_ACCESS_TOKEN = response.data.access_token;
+			fs.writeFile("./config.json", JSON.stringify(config), (err) => console.error);
+	
+			console.log("\x1b[33m", "Credentials have been renewed and replaced in the config.");
+		})
+		.catch (err => {
+			// Promise Error/Exception Handling
+			console.log("\x1b[31m", "[ERROR] Issue validating your Battle.net credentials:");
+			console.log("\x1b[31m", "[ERROR] Error Code: " + err.response.status + " " + err.response.statusText);
+			return err;
 		});
-	}
+		}
 
 	// Save Data
 	if (args[0] === "reload") {

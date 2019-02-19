@@ -38,7 +38,7 @@ exports.run = (client, message, args, blizzard, config) => {
 				  	"color": 2019349,
 				  	"timestamp": new Date(),
 				  	"footer": {
-						"icon_url": "https://d1u5p3l4wpay3k.cloudfront.net/wowpedia/thumb/2/27/Legion-Icon.png/120px-Legion-Icon.png?version=40b0077c5c9e566ee62fd575c9b25580",
+						"icon_url": "https://i.imgur.com/wWDy4Ou.jpg",
 						"text": "Alarm-o-Bot"
 				  	},
 				  	"thumbnail": {
@@ -46,7 +46,7 @@ exports.run = (client, message, args, blizzard, config) => {
 				  	},
 				  	"author": {
 						"name": "Character Audit",
-						"icon_url": "https://d1u5p3l4wpay3k.cloudfront.net/wowpedia/thumb/2/27/Legion-Icon.png/120px-Legion-Icon.png?version=40b0077c5c9e566ee62fd575c9b25580"
+						"icon_url": "https://i.imgur.com/wWDy4Ou.jpg"
 					},
 					"fields": [
 						auditor.data.CheckTalentsCategory(response),

@@ -30,7 +30,7 @@ exports.run = (client, message, args, blizzard, config) => {
                 "color": 4375684,
                 "timestamp": new Date(),
                 "footer": {
-                    "icon_url": "https://bnetcmsus-a.akamaihd.net/cms/content_entry_media/m0/M07PD0T0K9YZ1417452204158.png",
+                    "icon_url": "https://i.imgur.com/wWDy4Ou.jpg",
                     "text": "Alarm-o-Bot"
                 },
                 "thumbnail": {
@@ -38,7 +38,7 @@ exports.run = (client, message, args, blizzard, config) => {
                 },
                 "author": {
                     "name": "Pet Checker",
-                    "icon_url": "https://bnetcmsus-a.akamaihd.net/cms/content_entry_media/m0/M07PD0T0K9YZ1417452204158.png"
+                    "icon_url": "https://i.imgur.com/wWDy4Ou.jpg"
                 },
                 "fields": [
                     {
