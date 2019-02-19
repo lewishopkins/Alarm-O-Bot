@@ -4,6 +4,24 @@
 const config = require("../config.json");
 var progress = {};
 
+// Populate Discord Progression Fields
+progress.PopulateProgressFields = function(info) {
+    
+    const response = info;
+    var fields = [];
+
+    for (var i = 0; i < config.WOW_current_raids; i++) {
+        var raid = {
+            "name" : response[2].data.progression.raids[config.WOW_last_raid_id - i].name,
+            "value" : progress.FindHighestProgression(response[2].data.progression.raids[config.WOW_last_raid_id - i])
+        }
+
+        fields.push(raid);
+    }
+
+    return fields;
+}
+
 // Determine HIGHEST PROGRESSION
 progress.FindHighestProgression = function(info) {
 

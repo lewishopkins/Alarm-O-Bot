@@ -5,7 +5,7 @@ exports.run = (client, message, args, blizzard, config) => {
     const colors = require("../functions/colors.js");
     const validator = require("../functions/character-validator.js");
     const fs = require("fs");
-  
+
     // Validation
     var characterDetails = validator.data.ValidateCharacter(args);
     if (characterDetails[0] === 0)

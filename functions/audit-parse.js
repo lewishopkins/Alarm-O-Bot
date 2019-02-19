@@ -3,6 +3,7 @@
 
 const config = require("../config.json");
 const Discord = require("discord.js");
+const wowDataItemSlots = require("../data/wow-data-itemslots.json");
 
 var auditor = {};
 
@@ -41,7 +42,7 @@ auditor.CheckSocketsCategory = function(response) {
         ResponseString += `${response.data.audit.emptySockets} unsocketed items.`;
 
         return {
-            "name": "Sockets",
+            "name": "Gems",
             "value": ResponseString
         }
 
