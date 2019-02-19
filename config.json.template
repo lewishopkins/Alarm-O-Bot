@@ -6,8 +6,8 @@
 
     "DEBUG_commands": 0,
 
-    "BLIZZARD_API_KEY": "Your Blizzard API key",
-    "BLIZZARD_API_SECRET": "Your Blizzard API secret",
+    "BLIZZARD_API_KEY": "Your Blizzard CLIENT ID",
+    "BLIZZARD_API_SECRET": "Your Blizzard CLIENT SECRET",
     "BLIZZARD_API_ACCESS_TOKEN": "",
 
     "default_region": "eu",

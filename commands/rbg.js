@@ -47,7 +47,7 @@ exports.run = (client, message, args, blizzard, config) => {
             },
             {
               "name": "RBG All Time Stats",
-              "value": response.data.statistics.subCategories[9].subCategories[1].statistics[35].quantity + " Wins, " + (response.data.statistics.subCategories[9].subCategories[1].statistics[33].quantity - response.data.statistics.subCategories[9].subCategories[1].statistics[35].quantity) + " Losses"
+              "value": response.data.statistics.subCategories[9].subCategories[1].statistics[37].quantity + " Wins, " + (response.data.statistics.subCategories[9].subCategories[1].statistics[35].quantity - response.data.statistics.subCategories[9].subCategories[1].statistics[37].quantity) + " Losses"
             }
           ]
         }

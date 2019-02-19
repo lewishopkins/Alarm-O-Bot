@@ -10,23 +10,22 @@ exports.run = (client, message, args, blizzard, config) => {
     if (regionDetails[0] === 0)
         message.reply(regionDetails[1]+`\nCorrect syntax: !token region`);
     else {
-        var region = regionDetails[1];
+        var Cregion = regionDetails[1];
 
-        blizzard.data.token({ access_token: config.BLIZZARD_API_ACCESS_TOKEN, namespace: `dynamic-${region}`, origin: region })
+        blizzard.wow.token({ region: "eu", token: config.BLIZZARD_API_ACCESS_TOKEN })
         .then(response => {
 
+            console.log(response.data);
+
             var GoldResult = String(response.data.price);
-            //console.log('GoldResult = ' + GoldResult);
             
             // Remove Copper/Silver
-            GoldOnly = GoldResult.slice(0,-4);
-            //console.log('GoldOnly = ' + GoldOnly);
-            
             // TODO: Fix for if the gold price drops below or above 6 figures.
+            GoldOnly = GoldResult.slice(0,-4);
+            
+            // Make number readable
             GFirst = GoldOnly.slice(0,-3);
-            //console.log('GFirst = ' + GFirst);
             GLast = GoldOnly.slice(3);
-            //console.log('GLast = ' + GLast);
             
             // Stick Together
             GFinal = GFirst + "," + GLast + "g";

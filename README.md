@@ -28,6 +28,9 @@ npm install blizzard.js
 - Set "admin_role_name" to a Discord role on your server which you are happy to have access to ALL commands - preferably a role which only you have.
 - A default realm and region may be set in the config so that users may leave out those part of the following commands.
 - Go to the [Discord Developer Portal](https://discordapp.com/developers) and create a new application.
+- Convert the application into a bot, place the discord token into "Token" in the config.
+- Invite your bot to your discord server.
+- Run startAlarmOBot.bat
 
 ## Commands
 
@@ -52,3 +55,9 @@ npm install blizzard.js
 !reload filename - Reloads the file so that commands may be edited while the bot is active
 !ping
 ```
+
+## Maintenance
+
+Considerations for adjusting to API changes over time:
+
+- When a new battleground is added to the game, the exact area in the statistics array to find RBG games played and RBG wins may have shifted.

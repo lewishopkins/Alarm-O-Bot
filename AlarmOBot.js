@@ -63,7 +63,7 @@ bot.on("message", message => {
 			console.error(err);
 
 		// Send error data to console
-		console.log("\x1b[31m", `[ERROR] Command ./commands/${command}.js attempted by user ${message.author.username}#${message.author.discriminator} [${message.author.id}] not found.`);
+		console.log("\x1b[31m", `[ERROR] Command ./commands/${command}.js attempted by user ${message.author.username}#${message.author.discriminator} [${message.author.id}] failed or was not found.`);
 	}
 });
 
